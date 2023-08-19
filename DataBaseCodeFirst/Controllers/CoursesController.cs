@@ -48,7 +48,7 @@ namespace DataBaseCodeFirst.Controllers
         // GET: Courses/Create
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.Student, "Id", "Email");
+            ViewData["UserId"] = new SelectList(_context.Student, "Id", "Id");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace DataBaseCodeFirst.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Student, "Id", "Email", course.UserId);
+            ViewData["UserId"] = new SelectList(_context.Student, "Id", "Id", course.UserId);
             return View(course);
         }
 
@@ -82,7 +82,7 @@ namespace DataBaseCodeFirst.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Student, "Id", "Email", course.UserId);
+            ViewData["UserId"] = new SelectList(_context.Student, "Id", "Id", course.UserId);
             return View(course);
         }
 
@@ -118,7 +118,7 @@ namespace DataBaseCodeFirst.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Student, "Id", "Email", course.UserId);
+            ViewData["UserId"] = new SelectList(_context.Student, "Id", "Id", course.UserId);
             return View(course);
         }
 

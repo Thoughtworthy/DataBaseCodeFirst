@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DataBaseCodeFirst.Models
 {
@@ -14,21 +16,24 @@ namespace DataBaseCodeFirst.Models
         }
 
         [Key]
-        [Column("Id", TypeName = "int", Order = 0)]
+        [Column("Id", TypeName = "int")]
         public int Id { get; set; }
 
-        [Column("StudentNumber", TypeName = "nvarchar(256)", Order = 1)]
+        [Required]
+        [Column("StudentNumber", TypeName = "nvarchar(256)")]
         public string? StudentNumber { get; set; }
 
         [Required]
-        [Column("Name", TypeName = "nvarchar(256)", Order = 2)]
+        [Column("Name", TypeName = "nvarchar(256)")]
         public string? Name { get; set; }
 
         [Required]
-        [Column("Email", TypeName = "nvarchar(256)", Order = 3)]
+        [Column("Email", TypeName = "nvarchar(256)")]
+        [EmailAddress]
         public string? Email { get; set; }
 
-        [Column("DateOfBirth", TypeName = "Datetime", Order = 4)]
+        [Column("DateOfBirth", TypeName = "datetime")]
+        [DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
 
         // Navigation Properties

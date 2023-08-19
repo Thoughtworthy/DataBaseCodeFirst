@@ -24,9 +24,7 @@ namespace DataBaseCodeFirst.Models
         [NotNull]
         public virtual int StudentId { get; set; }
 
-        [Required]
         [ForeignKey("StudentId")]
-        [NotNull]
         public virtual Student? Student { get; set; }
 
     }
